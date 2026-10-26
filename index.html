@@ -108,7 +108,16 @@
                     <!-- Javascript injected items -->
                 </div>
 
-                <div id="deliveryFormSection" class="bg-[#efe8d8]/60 p-4 rounded-2xl border border-[#d6c7b0] space-y-3 mt-4">
+                <!-- УВЕДОМЛЕНИЕ ОБ АЛКОГОЛЕ (строго с 21 года) -->
+                <div class="bg-amber-50 border border-amber-300/80 p-3.5 rounded-xl text-xs md:text-sm text-amber-900 flex items-start gap-2.5 shadow-sm">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-600 text-base mt-0.5 shrink-0"></i>
+                    <div>
+                        <span class="font-bold block mb-0.5" data-i18n="alcoholWarningTitle">Алкогольная продукция 21+</span>
+                        <span data-i18n="alcoholWarningText">Алкогольные напитки отпускаются строго с 21 года. Курьер обязательно проверит удостоверение личности при доставке.</span>
+                    </div>
+                </div>
+
+                <div id="deliveryFormSection" class="bg-[#efe8d8]/60 p-4 rounded-2xl border border-[#d6c7b0] space-y-3 mt-2">
                     <h4 class="font-bold text-sm text-[#3d2b1f] uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-truck-fast text-emerald-700"></i>
                         <span data-i18n="deliveryDetailsTitle">Данные для доставки</span>
@@ -121,7 +130,6 @@
                         <label class="block text-xs font-semibold text-[#5c4738] mb-1">Номер телефона *</label>
                         <input type="tel" id="clientPhone" oninput="validateForm()" placeholder="+7 (778) 000-00-00" class="w-full px-3 py-2 text-sm rounded-xl border border-[#d6c7b0] bg-white focus:outline-none focus:border-emerald-700 text-[#3d2b1f]">
                     </div>
-                    <!-- НОВОЕ ПОЛЕ KASPI -->
                     <div>
                         <label class="block text-xs font-semibold text-[#5c4738] mb-1" data-i18n="kaspiLabel">Номер для счета Kaspi *</label>
                         <input type="tel" id="clientKaspi" oninput="validateForm()" placeholder="+7 (778) 000-00-00" class="w-full px-3 py-2 text-sm rounded-xl border border-[#d6c7b0] bg-white focus:outline-none focus:border-emerald-700 text-[#3d2b1f]">
@@ -142,21 +150,12 @@
             </div>
 
             <div id="cartFooter" class="bg-[#efe8d8] border-t border-[#e2d7c3] px-6 py-4 space-y-3 rounded-t-2xl shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)] shrink-0">
-                <!-- ВАЖНОЕ УВЕДОМЛЕНИЕ -->
                 <div class="bg-amber-100/70 border border-amber-300 rounded-xl p-3 text-xs md:text-sm text-amber-900 leading-tight">
                     <strong class="font-bold text-amber-700 uppercase" data-i18n="importantTitle">Важно:</strong> 
                     <span data-i18n="importantText">Заказ будет оформлен после выставления и оплаты вашей еды.</span>
                 </div>
                 
                 <div class="space-y-1 text-sm text-[#5c4738] pt-1">
-                    <div class="flex justify-between items-center">
-                        <span data-i18n="subtotal">Сумма:</span>
-                        <span id="cartSubtotal" class="font-bold text-[#3d2b1f]">0 ₸</span>
-                    </div>
-                    <div class="flex justify-between items-center text-emerald-800">
-                        <span data-i18n="deliveryFeeLabel">Доставка:</span>
-                        <span id="cartDelivery" class="font-bold">800 ₸</span>
-                    </div>
                     <div class="flex justify-between items-center pt-1.5 border-t border-[#d6c7b0] text-base md:text-lg mt-1">
                         <strong class="font-serif-title font-bold text-[#183e2b]" data-i18n="total">Итого к оплате:</strong>
                         <strong id="cartTotal" class="font-bold text-[#183e2b]">0 ₸</strong>
