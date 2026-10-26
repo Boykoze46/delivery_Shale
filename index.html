@@ -17,8 +17,6 @@
 <body class="min-h-screen flex flex-col antialiased relative">
 
     <header class="sticky top-0 z-50 bg-[#f6f1e3]/95 backdrop-blur-md border-b border-[#e2d7c3] shadow-md">
-        
-        <!-- Green header banner with neon Shale sign -->
         <div class="green-header-accent py-4 px-4 text-center border-b border-[#22c55e]/20 shadow-inner relative">
             <button id="languageToggle" type="button" onclick="toggleLanguage()"
                 class="absolute right-3 top-3 md:right-6 md:top-4 rounded-full border border-emerald-300/50 bg-white/10 px-3 py-2 text-xs md:text-sm font-bold text-white hover:bg-white/20 transition"
@@ -33,7 +31,6 @@
             </div>
         </div>
 
-        <!-- Sticky Navigation Category Tabs -->
         <div class="bg-[#efe8d8] border-t border-b border-[#e2d7c3]">
             <div class="max-w-5xl mx-auto px-2">
                 <nav id="categoryNav" class="flex items-center space-x-2 overflow-x-auto py-2.5 no-scrollbar">
@@ -51,8 +48,6 @@
 
     <footer class="border-t border-[#e2d7c3] bg-[#efe8d8] py-8 px-4 mt-12 pb-24">
         <div class="max-w-md mx-auto text-center space-y-3">
-            
-            <!-- Контакты ресторана -->
             <div class="space-y-4 text-sm text-[#5c4738]">
                 <div class="flex flex-col items-center gap-1">
                     <i class="fa-brands fa-whatsapp text-emerald-700 text-xl" aria-hidden="true"></i>
@@ -63,7 +58,6 @@
                     </a>
                     <span class="text-xs text-[#8c7a6b]" data-i18n="contactHint">Напишите или позвоните нам, если у вас есть вопросы</span>
                 </div>
-
                 <div class="flex flex-col items-center gap-1 mt-4">
                     <i class="fa-brands fa-instagram text-emerald-700 text-xl" aria-hidden="true"></i>
                     <span class="font-semibold" data-i18n="instagramTitle">Мы в Instagram</span>
@@ -72,39 +66,31 @@
                         @shale_tmr
                     </a>
                 </div>
-
                 <div class="flex flex-col items-center gap-1 mt-4">
                     <i class="fa-regular fa-clock text-emerald-700 text-xl" aria-hidden="true"></i>
                     <span class="font-semibold" data-i18n="hoursTitle">График работы доставки</span>
                     <span data-i18n="hoursValue">Ежедневно: с 10:00 до 00:00</span>
                 </div>
             </div>
-
             <div class="pt-6 mt-4 border-t border-[#d6c7b0]/60 text-[#8c7a6b] text-[11px]">
                 <span data-i18n="copyright">© Ресторан «Shale». Традиционный уют и лучшее качество.</span>
             </div>
         </div>
     </footer>
 
-    <!-- Плавающая кнопка корзины -->
     <button id="floatingCartBtn" onclick="toggleCart()" class="fixed bottom-6 right-6 z-[90] bg-[#183e2b] text-[#f7f3e9] w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 translate-y-32 opacity-0 hover:scale-105 border-2 border-emerald-500/30">
         <i class="fa-solid fa-basket-shopping text-xl md:text-2xl"></i>
         <span id="floatingCartQty" class="absolute -top-1 -right-1 bg-red-500 text-white text-[11px] font-bold w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full border border-white">0</span>
     </button>
 
-    <!-- Модальное окно корзины и оформления доставки -->
     <div id="cartModal" class="fixed inset-0 z-[100] hidden flex-col justify-end pointer-events-none">
-        <!-- Затемнение фона -->
         <div id="cartBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto" onclick="toggleCart()"></div>
         
-        <!-- Сама панель корзины -->
         <div id="cartPanel" class="relative bg-[#fcf9f2] w-full max-w-lg mx-auto h-[90vh] rounded-t-3xl shadow-2xl flex flex-col transform translate-y-full transition-transform duration-300 pointer-events-auto">
-            <!-- Ручка для свайпа -->
             <div class="w-full flex justify-center pt-3 pb-2 cursor-pointer shrink-0" onclick="toggleCart()">
                 <div class="w-12 h-1.5 bg-[#d6c7b0] rounded-full"></div>
             </div>
 
-            <!-- Шапка корзины -->
             <div class="px-6 pb-4 border-b border-[#e2d7c3] flex justify-between items-center shrink-0">
                 <h3 class="text-2xl md:text-3xl font-bold font-serif-title text-[#3d2b1f]" data-i18n="cartTitle">Ваш заказ</h3>
                 <button onclick="toggleCart()" class="w-8 h-8 flex justify-center items-center rounded-full bg-[#efe8d8] text-[#8c7a6b] hover:text-[#3d2b1f] hover:bg-[#d6c7b0] transition-colors">
@@ -112,7 +98,6 @@
                 </button>
             </div>
 
-            <!-- Список блюд и форма (прокручиваемая зона) -->
             <div class="flex-1 overflow-y-auto px-4 md:px-6 py-2 no-scrollbar space-y-4">
                 <div id="cartEmptyMsg" class="h-full flex flex-col items-center justify-center text-[#8c7a6b] space-y-3 hidden">
                     <i class="fa-solid fa-basket-shopping text-4xl md:text-5xl opacity-20"></i>
@@ -123,7 +108,6 @@
                     <!-- Javascript injected items -->
                 </div>
 
-                <!-- Форма ввода данных для доставки -->
                 <div id="deliveryFormSection" class="bg-[#efe8d8]/60 p-4 rounded-2xl border border-[#d6c7b0] space-y-3 mt-4">
                     <h4 class="font-bold text-sm text-[#3d2b1f] uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-truck-fast text-emerald-700"></i>
@@ -136,6 +120,11 @@
                     <div>
                         <label class="block text-xs font-semibold text-[#5c4738] mb-1">Номер телефона *</label>
                         <input type="tel" id="clientPhone" oninput="validateForm()" placeholder="+7 (778) 000-00-00" class="w-full px-3 py-2 text-sm rounded-xl border border-[#d6c7b0] bg-white focus:outline-none focus:border-emerald-700 text-[#3d2b1f]">
+                    </div>
+                    <!-- НОВОЕ ПОЛЕ KASPI -->
+                    <div>
+                        <label class="block text-xs font-semibold text-[#5c4738] mb-1" data-i18n="kaspiLabel">Номер для счета Kaspi *</label>
+                        <input type="tel" id="clientKaspi" oninput="validateForm()" placeholder="+7 (778) 000-00-00" class="w-full px-3 py-2 text-sm rounded-xl border border-[#d6c7b0] bg-white focus:outline-none focus:border-emerald-700 text-[#3d2b1f]">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-[#5c4738] mb-1">Адрес доставки *</label>
@@ -152,9 +141,14 @@
                 </div>
             </div>
 
-            <!-- Итоги и кнопка отправки в WhatsApp -->
             <div id="cartFooter" class="bg-[#efe8d8] border-t border-[#e2d7c3] px-6 py-4 space-y-3 rounded-t-2xl shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)] shrink-0">
-                <div class="space-y-1 text-sm text-[#5c4738]">
+                <!-- ВАЖНОЕ УВЕДОМЛЕНИЕ -->
+                <div class="bg-amber-100/70 border border-amber-300 rounded-xl p-3 text-xs md:text-sm text-amber-900 leading-tight">
+                    <strong class="font-bold text-amber-700 uppercase" data-i18n="importantTitle">Важно:</strong> 
+                    <span data-i18n="importantText">Заказ будет оформлен после выставления и оплаты вашей еды.</span>
+                </div>
+                
+                <div class="space-y-1 text-sm text-[#5c4738] pt-1">
                     <div class="flex justify-between items-center">
                         <span data-i18n="subtotal">Сумма:</span>
                         <span id="cartSubtotal" class="font-bold text-[#3d2b1f]">0 ₸</span>
@@ -169,8 +163,7 @@
                     </div>
                 </div>
 
-                <!-- Кнопка отправки в WhatsApp (заблокирована по умолчанию) -->
-                <button id="sendOrderBtn" onclick="sendOrderToWhatsApp()" disabled class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2.5 transition-all text-base opacity-60 cursor-not-allowed">
+                <button id="sendOrderBtn" onclick="sendOrderToWhatsApp()" disabled class="w-full bg-[#25D366] text-white font-bold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2.5 transition-all text-base opacity-60 cursor-not-allowed mt-1">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                     <span data-i18n="sendWhatsAppBtn">Отправить заказ в WhatsApp</span>
                 </button>
