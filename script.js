@@ -494,7 +494,10 @@ const kk = {
         deliveryFeeLabel: 'Жеткізу:',
         total: 'Төлем жиынтығы:',
         deliveryDetailsTitle: 'Жеткізу деректері',
-        sendWhatsAppBtn: 'WhatsApp-қа тапсырыс жіберу'
+        sendWhatsAppBtn: 'WhatsApp-қа тапсырыс жіберу',
+        importantTitle: 'Маңызды:',
+        importantText: 'Тапсырыс тамағыңыздың шоты шығарылып, төленгеннен кейін ғана рәсімделеді.',
+        kaspiLabel: 'Kaspi шот нөмірі *'
     },
     categories: {
         'Салаты':'Салаттар',
@@ -761,7 +764,10 @@ function toggleLanguage() {
                 deliveryFeeLabel: 'Доставка:',
                 total: 'Итого к оплате:',
                 deliveryDetailsTitle: 'Данные для доставки',
-                sendWhatsAppBtn: 'Отправить заказ в WhatsApp'
+                sendWhatsAppBtn: 'Отправить заказ в WhatsApp',
+                importantTitle: 'Важно:',
+                importantText: 'Заказ будет оформлен после выставления и оплаты вашей еды.',
+                kaspiLabel: 'Номер для счета Kaspi *'
             })[key];
         }
     });
@@ -853,17 +859,14 @@ function renderMenu() {
     `).join('');
 }
 
-// === ЛОГИКА КОРЗИНЫ ===
 function addToCart(name, price, weight, priceStr) {
     const key = `${name}_${weight}`;
-    
     if (cart[key]) {
         cart[key].qty += 1;
     } else {
         cart[key] = { name, price, weight, qty: 1, priceStr };
     }
     updateCartUI();
-    
     const fab = document.getElementById('floatingCartBtn');
     if(fab) {
         fab.classList.add('scale-110');
@@ -967,15 +970,16 @@ function updateCartUI() {
     totalEl.textContent = formatPrice(total);
 }
 
-// === ВАЛИДАЦИЯ ФОРМЫ ===
+// === ВАЛИДАЦИЯ ФОРМЫ С НОВЫМ ПОЛЕМ KASPI ===
 function validateForm() {
     const name = document.getElementById('clientName').value.trim();
     const phone = document.getElementById('clientPhone').value.trim();
+    const kaspi = document.getElementById('clientKaspi').value.trim();
     const address = document.getElementById('clientAddress').value.trim();
     const time = document.getElementById('clientTime').value.trim();
     const btn = document.getElementById('sendOrderBtn');
 
-    if (name && phone && address && time) {
+    if (name && phone && kaspi && address && time) {
         btn.disabled = false;
         btn.classList.remove('opacity-60', 'cursor-not-allowed');
         btn.classList.add('hover:bg-[#20ba5a]', 'hover:scale-[1.01]', 'active:scale-95');
@@ -986,15 +990,16 @@ function validateForm() {
     }
 }
 
-// === ОТПРАВКА В WHATSAPP ===
+// === ОТПРАВКА В WHATSAPP (С ИСПОЛЬЗОВАНИЕМ ЮНИКОД ЭМОДЗИ) ===
 function sendOrderToWhatsApp() {
     const name = document.getElementById('clientName').value.trim();
     const phone = document.getElementById('clientPhone').value.trim();
+    const kaspi = document.getElementById('clientKaspi').value.trim();
     const address = document.getElementById('clientAddress').value.trim();
     const time = document.getElementById('clientTime').value.trim();
     const comment = document.getElementById('clientComment').value.trim();
 
-    if (!name || !phone || !address || !time) return;
+    if (!name || !phone || !kaspi || !address || !time) return;
 
     let subtotal = 0;
     let itemsText = '';
@@ -1010,20 +1015,22 @@ function sendOrderToWhatsApp() {
 
     const total = subtotal + DELIVERY_FEE;
 
-    // Сборка красивого сообщения
-    let message = `🛒 *НОВЫЙ ЗАКАЗ НА ДОСТАВКУ (Shale)*\n\n`;
-    message += `👤 *Имя:* ${name}\n`;
-    message += `📞 *Телефон:* ${phone}\n`;
-    message += `📍 *Адрес:* ${address}\n`;
-    message += `⏰ *Ко скольки:* ${time}\n`;
+    let message = `\uD83D\uDED2 *НОВЫЙ ЗАКАЗ НА ДОСТАВКУ (Shale)*\n\n`;
+    message += `\uD83D\uDC64 *Имя:* ${name}\n`;
+    message += `\uD83D\uDCDE *Телефон:* ${phone}\n`;
+    message += `\uD83D\uDCB3 *Kaspi (для счета):* ${kaspi}\n`;
+    message += `\uD83D\uDCCD *Адрес:* ${address}\n`;
+    message += `\u23F0 *Ко скольки:* ${time}\n`;
+    
     if (comment) {
-        message += `💬 *Комментарий:* ${comment}\n`;
+        message += `\uD83D\uDCAC *Комментарий:* ${comment}\n`;
     }
-    message += `\n📦 *Состав заказа:*\n${itemsText}`;
+    
+    message += `\n\uD83D\uDCE6 *Состав заказа:*\n${itemsText}`;
     message += `-------------------\n`;
-    message += `💵 Сумма блюд: ${formatPrice(subtotal)}\n`;
-    message += `🛵 Доставка: ${formatPrice(DELIVERY_FEE)}\n`;
-    message += `💳 *ИТОГО К ОПЛАТЕ: ${formatPrice(total)}*`;
+    message += `\uD83D\uDCB5 Сумма блюд: ${formatPrice(subtotal)}\n`;
+    message += `\uD83D\uDEF5 Доставка: ${formatPrice(DELIVERY_FEE)}\n`;
+    message += `\uD83D\uDCB3 *ИТОГО К ОПЛАТЕ: ${formatPrice(total)}*`;
 
     const restaurantPhone = '77787952220';
     const whatsappUrl = `https://wa.me/${restaurantPhone}?text=${encodeURIComponent(message)}`;
@@ -1035,7 +1042,6 @@ function formatPrice(num) {
     return num.toLocaleString('ru-RU') + ' ₸';
 }
 
-// === НАВИГАЦИЯ И СКРОЛЛ ===
 function jumpToSection(event, catId) {
     event.preventDefault();
     const target = document.getElementById(`section-${catId}`);
