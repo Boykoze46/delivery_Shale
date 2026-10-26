@@ -57,6 +57,32 @@ const fullMenuData = [
         ]
     },
     {
+        id: 'bakery',
+        title: 'Выпечка',
+        icon: 'fa-bread-slice',
+        items: [
+            { name: 'Лепешка домашняя', desc: '', price: '450 ₸', weight: '' },
+            { name: 'Хлебная корзина', desc: '', price: '650 ₸', weight: '' },
+            { name: 'Хачапури', desc: '', price: '2 500 ₸', weight: '' },
+            { name: 'Хачапури по-Мегрельски', desc: '', price: '2 700 ₸', weight: '' },
+            { name: 'Хачапури по-Аджарски', desc: '', price: '2 700 ₸', weight: '' },
+            { name: 'Хачапури из слоёного теста', desc: '', price: '2 900 ₸', weight: '' }
+        ]
+    },
+    {
+        id: 'pizza',
+        title: 'Пицца',
+        icon: 'fa-pizza-slice',
+        items: [
+            { name: 'Маргарита', desc: 'классическая пицца с помидорами, маслинами и орегано', price: '2 400 ₸', weight: '' },
+            { name: 'Пепперони', desc: 'классическая пицца с колбасками пепперони', price: '3 100 ₸', weight: '' },
+            { name: 'С курицей и грибами', desc: 'курица копч., грибы, помидор, соус тар-тар', price: '3 300 ₸', weight: '' },
+            { name: 'Бавария', desc: 'ветчина, перец болг., помидор, маслины, сыр соус классический', price: '3 300 ₸', weight: '' },
+            { name: 'С охот. колбасками', desc: 'охот. колбаски, огурец сол., помидор, сыр, соус классический', price: '3 300 ₸', weight: '' },
+            { name: 'С сёмгой и творожным сыром', desc: 'сёмга с/с, творожный сыр, помидор, сыр, соус тар-тар', price: '3 900 ₸', weight: '' }
+        ]
+    },
+    {
         id: 'fish',
         title: 'Блюда из рыбы и морепродуктов',
         icon: 'fa-fish',
@@ -291,28 +317,6 @@ const fullMenuData = [
         ]
     },
     {
-        id: 'tea',
-        title: 'Чай и дополнения',
-        icon: 'fa-mug-hot',
-        items: [
-            { name: 'Чабрец и мята', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Ягодный', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Яблоко с корицей', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Цитрусовый', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Облепиховый', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Ташкентский', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Фруктовый', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Клубника и мята', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Вишня и мята', desc: 'Авторский чай', price: '2 000 / 3 000 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Глинтвейн', desc: 'Авторский чай', price: '2 200 / 3 200 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Черный чай', desc: '', price: '1 300 / 1 800 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Зеленый чай', desc: '', price: '1 300 / 1 800 ₸', weight: '1 л / 1.8 л' },
-            { name: 'Молоко', desc: 'Дополнение', price: '450 ₸', weight: '100 мл' },
-            { name: 'Лимон', desc: 'Дополнение', price: '450 ₸', weight: '50 гр' },
-            { name: 'Мёд', desc: 'Дополнение', price: '300 ₸', weight: '1 порция' }
-        ]
-    },
-    {
         id: 'beer',
         title: 'Пиво',
         icon: 'fa-beer-mug-empty',
@@ -380,8 +384,8 @@ const fullMenuData = [
         title: 'Вермут',
         icon: 'fa-martini-glass-citrus',
         items: [
-            { name: 'Martini Bianco', desc: '', price: '1 400 ₸', weight: '100 мл' },
-            { name: 'Martini Fiero', desc: '', price: '1 400 ₸', weight: '100 мл' }
+            { name: 'Martini Bianco', desc: '', price: '1 400 ₸', weight: '1 л' },
+            { name: 'Martini Fiero', desc: '', price: '1 400 ₸', weight: '1 л' }
         ]
     },
     {
@@ -400,20 +404,20 @@ const fullMenuData = [
         title: 'Виски, Ром, Текила, Джин',
         icon: 'fa-glass-whiskey',
         items: [
-            { name: 'Propeller (виски, ром, джин)', desc: '50 мл / 0.75 л', price: '650 / 8 500 ₸', weight: '' },
-            { name: 'Carta Vieja (Панамский ром)', desc: '50 мл / 0.75 л', price: '600 / 8 000 ₸', weight: '' },
-            { name: 'Dewar`s 8 Y.O Caribbean', desc: '50 мл / 0.7 л', price: '1 690 / 23 500 ₸', weight: '' },
-            { name: 'Jameson', desc: '50 мл / 0.5 л', price: '1 890 / 18 900 ₸', weight: '' },
-            { name: 'Ballantine`s', desc: '50 мл / 0.5 л', price: '1 350 / 13 500 ₸', weight: '' },
-            { name: 'William Lawson`s', desc: '50 мл / 0.5 л', price: '1 090 / 10 900 ₸', weight: '' },
-            { name: 'Red Label', desc: '50 мл / 0.5 л', price: '1 250 / 12 500 ₸', weight: '' },
-            { name: 'Jack Daniel`s', desc: '50 мл / 0.5 л', price: '2 200 / 22 000 ₸', weight: '' },
-            { name: 'Dewar`s white label', desc: '50 мл / 0.5 л', price: '1 290 / 12 900 ₸', weight: '' },
-            { name: 'Sierra', desc: '50 мл / 0.5 л', price: '1 290 / 12 900 ₸', weight: '' },
-            { name: 'Bacardi Carta Blanca', desc: '50 мл / 0.5 л', price: '1 350 / 13 500 ₸', weight: '' },
-            { name: 'OakHeart', desc: '50 мл / 0.5 л', price: '1 290 / 12 900 ₸', weight: '' },
-            { name: 'Jagermeister', desc: '50 мл / 0.5 л', price: '1 790 / 17 900 ₸', weight: '' },
-            { name: 'Baileys', desc: '50 мл / 0.5 л', price: '1 790 / 17 900 ₸', weight: '' }
+            { name: 'Propeller (виски, ром, джин)', desc: '0.75 л', price: '8 500 ₸', weight: '' },
+            { name: 'Carta Vieja (Панамский ром)', desc: '0.75 л', price: '8 000 ₸', weight: '' },
+            { name: 'Dewar`s 8 Y.O Caribbean', desc: '0.7 л', price: '23 500 ₸', weight: '' },
+            { name: 'Jameson', desc: '0.5 л', price: '18 900 ₸', weight: '' },
+            { name: 'Ballantine`s', desc: '0.5 л', price: '13 500 ₸', weight: '' },
+            { name: 'William Lawson`s', desc: '0.5 л', price: '10 900 ₸', weight: '' },
+            { name: 'Red Label', desc: '0.5 л', price: '12 500 ₸', weight: '' },
+            { name: 'Jack Daniel`s', desc: '0.5 л', price: '22 000 ₸', weight: '' },
+            { name: 'Dewar`s white label', desc: '0.5 л', price: '12 900 ₸', weight: '' },
+            { name: 'Sierra', desc: '0.5 л', price: '12 900 ₸', weight: '' },
+            { name: 'Bacardi Carta Blanca', desc: '0.5 л', price: '13 500 ₸', weight: '' },
+            { name: 'OakHeart', desc: '0.5 л', price: '12 900 ₸', weight: '' },
+            { name: 'Jagermeister', desc: '0.5 л', price: '17 900 ₸', weight: '' },
+            { name: 'Baileys', desc: '0.5 л', price: '17 900 ₸', weight: '' }
         ]
     },
     {
@@ -421,10 +425,10 @@ const fullMenuData = [
         title: 'Коньяк',
         icon: 'fa-wine-bottle',
         items: [
-            { name: 'Казахстан Бахус 3*', desc: '50 мл / 0.5 л', price: '700 / 7 000 ₸', weight: '' },
-            { name: 'Янтарная Армения 3*', desc: '50 мл / 0.5 л', price: '700 / 7 000 ₸', weight: '' },
-            { name: 'Янтарная Армения 5*', desc: '50 мл / 0.5 л', price: '750 / 7 500 ₸', weight: '' },
-            { name: 'Арарат 5*', desc: '50 мл / 0.5 л', price: '1 200 / 12 000 ₸', weight: '' }
+            { name: 'Казахстан Бахус 3*', desc: '0.5 л', price: '7 000 ₸', weight: '' },
+            { name: 'Янтарная Армения 3*', desc: '0.5 л', price: '7 000 ₸', weight: '' },
+            { name: 'Янтарная Армения 5*', desc: '0.5 л', price: '7 500 ₸', weight: '' },
+            { name: 'Арарат 5*', desc: '0.5 л', price: '12 000 ₸', weight: '' }
         ]
     },
     {
@@ -432,55 +436,14 @@ const fullMenuData = [
         title: 'Водка',
         icon: 'fa-bottle-droplet',
         items: [
-            { name: 'Kyzylzhar legend of Kazakhstan', desc: '50 мл / 0.5 л', price: '550 / 5 500 ₸', weight: '' },
-            { name: 'Хаома ECO', desc: '50 мл / 0.5 л', price: '450 / 4 500 ₸', weight: '' },
-            { name: 'Godunoff', desc: '50 мл / 0.5 л', price: '500 / 5 000 ₸', weight: '' },
-            { name: 'Хортица', desc: '50 мл / 0.5 л', price: '500 / 5 000 ₸', weight: '' },
-            { name: 'Мороша', desc: '50 мл / 0.5 л', price: '500 / 5 000 ₸', weight: '' },
-            { name: 'Absolut', desc: '50 мл / 0.5 л', price: '1 290 / 12 900 ₸', weight: '' },
-            { name: 'Finlandia', desc: '50 мл / 0.5 л', price: '1 290 / 12 900 ₸', weight: '' },
-            { name: 'Nemiroff', desc: '50 мл / 0.5 л', price: '690 / 6 900 ₸', weight: '' }
-        ]
-    },
-    {
-        id: 'cocktails',
-        title: 'Алкогольные коктейли',
-        icon: 'fa-martini-glass',
-        items: [
-            { name: 'Глинтвейн', desc: 'согревающий винный напиток со вкусом яблока, апельсина, корицы и пряностей', price: '2 200 ₸', weight: '' },
-            { name: 'Darth Vader', desc: 'jagermeister, спрайт, гренадин', price: '2 100 ₸', weight: '' },
-            { name: 'Baileys ice', desc: 'мороженое, Baileys', price: '2 400 ₸', weight: '' },
-            { name: 'Апероль сприц', desc: 'Апероль, просекко, сок апельсина', price: '2 800 ₸', weight: '' },
-            { name: 'Fiero & Tonik', desc: 'Martini Fiero, швепс', price: '1 950 ₸', weight: '' },
-            { name: 'Mojito', desc: 'ром, лайм, мята, содовая', price: '2 100 ₸', weight: '' },
-            { name: 'Mojito strawberry', desc: 'ром, лайм, мята, содовая, сироп клубники', price: '2 100 ₸', weight: '' },
-            { name: 'Pinacolada', desc: 'белый ром, сок ананаса, сироп кокос и ананас', price: '2 100 ₸', weight: '' },
-            { name: 'Tequila sunrise', desc: 'текила, сок апельсина, гренадин', price: '2 200 ₸', weight: '' },
-            { name: 'Long Island', desc: 'водка, джин, текила, ром, Трипл-Сек, сок лимона, кола', price: '2 800 ₸', weight: '' },
-            { name: 'Оранжевый соблазн', desc: 'коньяк, сок апельсина, сок лимона', price: '2 100 ₸', weight: '' },
-            { name: 'Bianco sunrise', desc: 'Martini Bianco, морс клюква, сок ананас', price: '2 100 ₸', weight: '' },
-            { name: 'Черная мамба', desc: 'ром, сироп ежевика, кола, сок лимона', price: '2 400 ₸', weight: '' },
-            { name: 'Поцелуй русалки', desc: 'водка, апероль, блю-кюр., сок лимона', price: '2 100 ₸', weight: '' }
-        ]
-    },
-    {
-        id: 'shots',
-        title: 'Шоты',
-        icon: 'fa-glass-water',
-        items: [
-            { name: 'Цитрусовая вспышка', desc: 'водка, сок апельсина, сок лимона', price: '2 200 ₸', weight: '' },
-            { name: 'Секс на пляже', desc: 'водка, сок апельсина, клюква', price: '2 200 ₸', weight: '' },
-            { name: 'Летний', desc: 'водка, сок апельсина, лайм', price: '2 200 ₸', weight: '' },
-            { name: 'Клубничный взрыв', desc: 'водка, сок клюква, сироп клубника', price: '2 200 ₸', weight: '' },
-            { name: 'Зеленый русский', desc: 'водка, сок яблочный, сироп Тархун, сок лимона', price: '2 200 ₸', weight: '' },
-            { name: 'Закат', desc: 'водка, сироп ежевика', price: '2 200 ₸', weight: '' },
-            { name: 'Вишневый бум', desc: 'коньяк, сироп вишн., сок вишни', price: '2 500 ₸', weight: '' },
-            { name: 'Розовый фламинго', desc: 'ром, ананасовый сок, гренадин, сок лимона', price: '2 700 ₸', weight: '' },
-            { name: 'Зеленый Ирландец', desc: 'виски, яблочный сок, сок лимона, сироп Тархун', price: '2 600 ₸', weight: '' },
-            { name: 'Камикадзе', desc: 'водка, Трипл Сек, сок лимона', price: '3 100 ₸', weight: '' },
-            { name: 'Пьяная ведьма', desc: 'текила, сироп блю-кюрасао, гренадин, спрайт', price: '3 100 ₸', weight: '' },
-            { name: 'Jager Bobr', desc: 'jagermeister, водка, сок вишни', price: '3 700 ₸', weight: '' },
-            { name: 'Jager monstr', desc: 'jagermeister, сок апельсина, сироп ежевика', price: '2 500 ₸', weight: '' }
+            { name: 'Kyzylzhar legend of Kazakhstan', desc: '0.5 л', price: '5 500 ₸', weight: '' },
+            { name: 'Хаома ECO', desc: '0.5 л', price: '4 500 ₸', weight: '' },
+            { name: 'Godunoff', desc: '0.5 л', price: '5 000 ₸', weight: '' },
+            { name: 'Хортица', desc: '0.5 л', price: '5 000 ₸', weight: '' },
+            { name: 'Мороша', desc: '0.5 л', price: '5 000 ₸', weight: '' },
+            { name: 'Absolut', desc: '0.5 л', price: '12 900 ₸', weight: '' },
+            { name: 'Finlandia', desc: '0.5 л', price: '12 900 ₸', weight: '' },
+            { name: 'Nemiroff', desc: '0.5 л', price: '6 900 ₸', weight: '' }
         ]
     }
 ];
@@ -503,15 +466,18 @@ const kk = {
         cartTitle: 'Сіздің тапсырысыңыз',
         cartEmpty: 'Себетіңіз бос. Мәзірден дәмді бірдеңе таңдаңыз!',
         subtotal: 'Сомасы:',
-        deliveryFeeLabel: 'Жеткізу:',
         total: 'Төлем жиынтығы:',
         deliveryDetailsTitle: 'Жеткізу деректері',
         sendWhatsAppBtn: 'WhatsApp-қа тапсырыс жіберу',
         importantTitle: 'Маңызды:',
         importantText: 'Тапсырыс тамағыңыздың шоты шығарылып, төленгеннен кейін ғана рәсімделеді.',
-        kaspiLabel: 'Kaspi шот нөмірі *'
+        kaspiLabel: 'Kaspi шот нөмірі *',
+        alcoholWarningTitle: 'Алкоголь өнімдері 21+',
+        alcoholWarningText: 'Алкогольді сусындар тек 21 жастан асқан тұлғаларға беріледі. Курьер жеткізу кезінде жеке куәлікті міндетті түрде тексереді.'
     },
     categories: {
+        'Выпечка':'Бәліштер мен нан өнімдері',
+        'Пицца':'Пицца',
         'Салаты':'Салаттар',
         'Закуски':'Тіскебасарлар',
         'Блюда из рыбы и морепродуктов':'Балық пен теңіз өнімдері',
@@ -530,7 +496,6 @@ const kk = {
         'Холодные напитки':'Салқын сусындар',
         'Лимонады':'Лимонадтар',
         'Молочные коктейли':'Сүтті коктейльдер',
-        'Чай и дополнения':'Шай және қосымшалар',
         'Пиво':'Сыра',
         'К пиву':'Сыраға тіскебасарлар',
         'Вино':'Шарап',
@@ -539,15 +504,25 @@ const kk = {
         'Авторские настойки':'Авторлық тұнбалар',
         'Виски, Ром, Текила, Джин':'Виски, Ром, Текила, Джин',
         'Коньяк':'Коньяк',
-        'Водка':'Арақ',
-        'Алкогольные коктейли':'Алкогольді коктейльдер',
-        'Шоты':'Шоттар'
+        'Водка':'Арақ'
     },
     items: {
+        'Лепешка домашняя': ['Үй шелпегі', ''],
+        'Хлебная корзина': ['Нан себеті', ''],
+        'Хачапури': ['Хачапури', ''],
+        'Хачапури по-Мегрельски': ['Мегрелдік хачапури', ''],
+        'Хачапури по-Аджарски': ['Аджарлық хачапури', ''],
+        'Хачапури из слоёного теста': ['Қабатталған қамырдан жасалған хачапури', ''],
+        'Маргарита': ['Маргарита', 'қызанақ, зәйтүн және орегано қосылған классикалық пицца'],
+        'Пепперони': ['Пепперони', 'пепперони шұжықтары қосылған классикалық пицца'],
+        'С курицей и грибами': ['Тауық еті мен саңырауқұлақ қосылған пицца', 'ысталған тауық, саңырауқұлақ, қызанақ, тар-тар тұздығы'],
+        'Бавария': ['Бавария', 'ветчина, тәтті бұрыш, қызанақ, зәйтүн, ірімшік және классикалық тұздық'],
+        'С охот. колбасками': ['Аңшы шұжықтары қосылған пицца', 'аңшы шұжықтары, тұздалған қияр, қызанақ, ірімшік, классикалық тұздық'],
+        'С сёмгой и творожным сыром': ['Албырт пен ірімшік қосылған пицца', 'аз тұздалған албырт, ірімшік, қызанақ, ірімшік, тар-тар тұздығы'],
         'Домашний': ['Үй салаты', 'қияр, қызанақ, тәтті бұрыш, шалғам, пияз, май/майонез'],
         'Греческий': ['Грек салаты', 'қияр, қызанақ, тәтті бұрыш, грек ірімшігі, зәйтүн, зәйтүн майы'],
         'Кавказский': ['Кавказ салаты', 'пісірілген сиыр еті, қияр, қызанақ, тәтті бұрыш, шөптер, соя тұздығы, күнжіт'],
-        'С рукколой и творожным сыром': ['Руккола мен врие ірімшігі қосылған салат', 'руккола, салат қоспасы, черри қызанақтары, врие ірімшігі, қарағай жаңғағы, лимон-бал тұздығы'],
+        'С рукколой и творожным сыром': ['руккола мен врие ірімшігі қосылған салат', 'руккола, салат қоспасы, черри қызанақтары, врие ірімшігі, қарағай жаңғағы, лимон-бал тұздығы'],
         'С рулетиками из семги': ['Албырт орамалары бар салат', 'врий ірімшігі салынған албырт орамалары, салат қоспасы, қияр, зәйтүн, лимон-бал тұздығы'],
         'Хе с рыбой': ['Балық косылған Хе', 'көксерке филесінен, қиярдан, тәтті бұрыштан және пияздан жасалған классикалық салат'],
         'Хе с мясом': ['Ет косылған Хе', 'маринадталған сиыр еті, қияр және пияздан жасалған классикалық салат'],
@@ -679,7 +654,7 @@ const kk = {
         'Штрудель с мороженым': ['Балмұздақ косылған штрудель', 'қабатталған қамыр, алма, корица, мейіз'],
         'Киш с ягодой в ассортименте': ['Жидек косылған киш', 'песочное қамыры, қаймақ құймасы, жидектер'],
         'Сырники': ['Сырники', 'таңқурай тосабымен және қаймақпен/сгущенкамен'],
-        'Трайфл': ['Трайфл', 'бисквит, кремчиз, өрік/дие джем, кілегей'],
+        'Трайфл': ['Трайфл', 'бисквит, кремчиз, өрік/вишня джемі, кілегей'],
         'Шоколадный фондан': ['Шоколадты фондан', ''],
         'Шоколадный фондан с мороженым': ['Балмұздақ косылған шоколадты фондан', ''],
         'Шоколад в ассортименте': ['Шоколад ассортиментте', ''],
@@ -738,22 +713,7 @@ const kk = {
         'Чечил': ['Чечил', ''],
         'Чипсы': ['Чипсы', '65 гр / 120 гр'],
         'Сухарики': ['Кепкен нан', '40 гр / 100 гр'],
-        'Propeller (виски, ром, джин)': ['Propeller (виски, ром, джин)', '50 мл / 0.75 л'],
-        'Глинтвейн': ['Глинтвейн', 'алма, апельсин, даршын және дәмдеуіштер дәмі бар жылытатын шарап сусыны'],
-        'Чабрец и мята': ['Киікоты мен жалбыз', 'Авторлық шай'],
-        'Ягодный': ['Жидекті', 'Авторлық шай'],
-        'Яблоко с корицей': ['Даршын қосылған алма', 'Авторлық шай'],
-        'Цитрусовый': ['Цитрусты', 'Авторлық шай'],
-        'Облепиховый': ['Шырғанақ', 'Авторлық шай'],
-        'Ташкентский': ['Ташкент шайы', 'Авторлық шай'],
-        'Фруктовый': ['Жеміс шайы', 'Авторлық шай'],
-        'Клубника и мята': ['Бүлдірген мен жалбыз', 'Авторлық шай'],
-        'Вишня и мята': ['Шие мен жалбыз', 'Авторлық шай'],
-        'Черный чай': ['Қара шай', ''],
-        'Зеленый чай': ['Көк шай', ''],
-        'Молоко': ['Сүт', 'Қосымша'],
-        'Лимон': ['Лимон', 'Қосымша'],
-        'Мёд': ['Бал', 'Қосымша'],
+        'Propeller (виски, ром, джин)': ['Propeller (виски, ром, джин)', '0.75 л'],
         'Ванильный': ['Ванильді', ''],
         'Клубничный': ['Бүлдіргенді', ''],
         'Шоколадный': ['Шоколадты', ''],
@@ -787,13 +747,14 @@ function toggleLanguage() {
                 cartTitle: 'Ваш заказ',
                 cartEmpty: 'Ваша корзина пуста',
                 subtotal: 'Сумма:',
-                deliveryFeeLabel: 'Доставка:',
                 total: 'Итого к оплате:',
                 deliveryDetailsTitle: 'Данные для доставки',
                 sendWhatsAppBtn: 'Отправить заказ в WhatsApp',
                 importantTitle: 'Важно:',
                 importantText: 'Заказ будет оформлен после выставления и оплаты вашей еды.',
-                kaspiLabel: 'Номер для счета Kaspi *'
+                kaspiLabel: 'Номер для счета Kaspi *',
+                alcoholWarningTitle: 'Алкогольная продукция 21+',
+                alcoholWarningText: 'Алкогольные напитки отпускаются строго с 21 года. Курьер обязательно проверит удостоверение личности при доставке.'
             })[key];
         }
     });
@@ -805,7 +766,6 @@ function toggleLanguage() {
 }
 
 let activeCatId = fullMenuData[0].id;
-const DELIVERY_FEE = 800; // Фиксированная стоимость доставки
 
 document.addEventListener('DOMContentLoaded', () => {
     renderNav();
@@ -940,7 +900,6 @@ function updateCartUI() {
     const emptyMsg = document.getElementById('cartEmptyMsg');
     const deliveryForm = document.getElementById('deliveryFormSection');
     const cartFooter = document.getElementById('cartFooter');
-    const subtotalEl = document.getElementById('cartSubtotal');
     const totalEl = document.getElementById('cartTotal');
     const floatingBtn = document.getElementById('floatingCartBtn');
     const floatingQty = document.getElementById('floatingCartQty');
@@ -990,13 +949,9 @@ function updateCartUI() {
     }
 
     floatingQty.textContent = totalItems;
-    
-    const total = subtotal + DELIVERY_FEE;
-    subtotalEl.textContent = formatPrice(subtotal);
-    totalEl.textContent = formatPrice(total);
+    totalEl.textContent = formatPrice(subtotal);
 }
 
-// === ВАЛИДАЦИЯ ФОРМЫ С НОВЫМ ПОЛЕМ KASPI ===
 function validateForm() {
     const name = document.getElementById('clientName').value.trim();
     const phone = document.getElementById('clientPhone').value.trim();
@@ -1016,7 +971,6 @@ function validateForm() {
     }
 }
 
-// === ОТПРАВКА В WHATSAPP (С ИСПОЛЬЗОВАНИЕМ ЮНИКОД ЭМОДЗИ) ===
 function sendOrderToWhatsApp() {
     const name = document.getElementById('clientName').value.trim();
     const phone = document.getElementById('clientPhone').value.trim();
@@ -1039,24 +993,20 @@ function sendOrderToWhatsApp() {
         index++;
     }
 
-    const total = subtotal + DELIVERY_FEE;
-
-    let message = `\uD83D\uDED2 *НОВЫЙ ЗАКАЗ НА ДОСТАВКУ (Shale)*\n\n`;
-    message += `\uD83D\uDC64 *Имя:* ${name}\n`;
-    message += `\uD83D\uDCDE *Телефон:* ${phone}\n`;
-    message += `\uD83D\uDCB3 *Kaspi (для счета):* ${kaspi}\n`;
-    message += `\uD83D\uDCCD *Адрес:* ${address}\n`;
-    message += `\u23F0 *Ко скольки:* ${time}\n`;
+    let message = `🛒 *НОВЫЙ ЗАКАЗ НА ДОСТАВКУ (Shale)*\n\n`;
+    message += `👤 *Имя:* ${name}\n`;
+    message += `📞 *Телефон:* ${phone}\n`;
+    message += `💳 *Kaspi (для счета):* ${kaspi}\n`;
+    message += `📍 *Адрес:* ${address}\n`;
+    message += `⏰ *Ко скольки:* ${time}\n`;
     
     if (comment) {
-        message += `\uD83D\uDCAC *Комментарий:* ${comment}\n`;
+        message += `💬 *Комментарий:* ${comment}\n`;
     }
     
-    message += `\n\uD83D\uDCE6 *Состав заказа:*\n${itemsText}`;
+    message += `\n📦 *Состав заказа:*\n${itemsText}`;
     message += `-------------------\n`;
-    message += `\uD83D\uDCB5 Сумма блюд: ${formatPrice(subtotal)}\n`;
-    message += `\uD83D\uDEF5 Доставка: ${formatPrice(DELIVERY_FEE)}\n`;
-    message += `\uD83D\uDCB3 *ИТОГО К ОПЛАТЕ: ${formatPrice(total)}*`;
+    message += `💳 *ИТОГО К ОПЛАТЕ: ${formatPrice(subtotal)}*`;
 
     const restaurantPhone = '77787952220';
     const whatsappUrl = `https://wa.me/${restaurantPhone}?text=${encodeURIComponent(message)}`;
